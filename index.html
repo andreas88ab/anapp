@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="standard.css">
         <title></title>
     </head>
     <body>
         <h1>Hello world</h1>
+        <script>
+            navigator.camera.getPicture(onSuccess, onFail, { quality: 50 }); 
+
+            function onSuccess(imageData) 
+            {
+                var image = document.getElementById('myImage');
+                image.src = "data:image/jpeg;base64," + imageData;
+            }
+
+            function onFail(message) 
+            {
+                alert('Failed because: ' + message);
+            }
+        </script>
     </body>
 </html>
